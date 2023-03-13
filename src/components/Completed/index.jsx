@@ -6,7 +6,12 @@ const CompletedTodo = () => {
         state.todos.filter((todo) => todo.completed === true)
     );
 
-    return <h4 className='mt-3'>Total complete items: {todos.length}</h4>;
+    return (
+        <div>
+            <h4 className='mt-3'>Total complete items: {todos.length}</h4>
+        </div>
+    );
 };
 
 export default CompletedTodo;
+

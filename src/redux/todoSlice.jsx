@@ -3,12 +3,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const getTodosAsync = createAsyncThunk(
     'todos/getTodosAsync',
     async () => {
-        // const resp = await fetch('http://localhost:7000/todos');
         const resp = await fetch('https://my-json-server.typicode.com/AlvaroArratia/static-todos-api/todos');
         if (resp.ok) {
             const todos = await resp.json();
             return { todos };
-
         }
     }
 );
@@ -20,7 +18,6 @@ export const todoSlice = createSlice({
         addTodo: (state, action) => {
             const todo = {
                 id: new Date(),
-                // title: action.payload.title,
                 label: action.payload.label,
                 completed: false,
             };
@@ -44,12 +41,3 @@ export const todoSlice = createSlice({
 export const { addTodo, toggleComplete, deleteTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
-
-// 	name: 'todos',
-// 	initialState: [
-// 		{ id: 1, title: 'todo1', completed: false },
-// 		{ id: 2, title: 'todo2', completed: false },
-// 		{ id: 3, title: 'todo3', completed: true },
-// 		{ id: 4, title: 'todo4', completed: false },
-// 		{ id: 5, title: 'todo5', completed: false },
-// 	]

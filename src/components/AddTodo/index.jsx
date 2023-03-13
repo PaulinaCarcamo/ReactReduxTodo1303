@@ -11,7 +11,6 @@ const AddTodo = () => {
         if (value) {
             dispatch(
                 addTodo({
-                    // title: value,
                     label: value,
                 })
             );
@@ -20,11 +19,13 @@ const AddTodo = () => {
 
     return (
         <form onSubmit={onSubmit} className='form-inline mt-3 mb-3'>
-            <label className='sr-only'>Name</label>
+            <h4 className='mt-3'>THINGS TO DO</h4>
+            <hr />
+            <label className='sr-only'>Add todo</label>
             <input
                 type='text'
                 className='form-control mb-2 mr-sm-2'
-                placeholder='Add todo...'
+                placeholder='Study...'
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
             ></input>

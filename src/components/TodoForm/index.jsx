@@ -12,12 +12,18 @@ const TodoForm = () => {
     }, [dispatch]);
 
     return (
-        <ul className='list-group'>
-            {todos.map((todo) => (
-                // <TodoItem id={todo.id} title={todo.title} completed={todo.completed} />
-                <TodoItem id={todo.id} label={todo.label} completed={todo.completed} />
-            ))}
-        </ul>
+        <div>
+            {todos.length === 0
+                ? <div><h5>Looks like you&apos;re absolutely free today!</h5></div>
+                :
+                <ul className='list-group'>
+
+                    {todos.map((todo) => (
+                        <TodoItem id={todo.id} label={todo.label} completed={todo.completed} />
+                    ))}
+                </ul>
+            }
+        </div>
     );
 };
 
